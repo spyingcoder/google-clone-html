@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://googleapis.com" rel="stylesheet" />
+    <title>Page 1</title>
+    <style>
+      :root {
+        /* --primary-color: rgb(67, 86, 232); */
+        --primary-color: #ffffff;
+        --secondary-color: #f5f5f5;
+        --button-color: rgb(248, 249, 250);
+        --button-text-color: rgb(60, 64, 67);
+        --spacing: 20px;
+        --radius: 8px;
+        --font-sm: 14px;
+        --font-md: 18px;
+        --font-lg: 28px;
+
+        --font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+
+        --nav-height: 16px;
+
+        --line-height: 1.5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ffffff;
+        margin: 0;
+        font-size: var(--font-md);
+        line-height: var(--line-height);
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: black;
+        padding: 15px 30px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing);
+      }
+
+      .logo-with-search {
+        padding: var(--spacing);
+        margin-top: var(--spacing);
+        margin-left: var(--spacing);
+        margin-right: var(--spacing);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      footer {
+        background-color: var(--primary-color);
+        padding: 10px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      div > nav > a {
+        height: var(--nav-height);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: var(--font-sm);
+      }
+
+      #textfield {
+        margin: calc(var(--spacing) * 0.5) 0px;
+        border: none;
+        outline: none;
+        width: 55%;
+        height: 30px;
+        font-size: 16px;
+      }
+
+      #textfield:focus {
+        outline: none;
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      main > section > img {
+        margin-top: 40px;
+        width: 500px;
+        height: 150px;
+        color: #f5f5f5;
+      }
+
+      .searchfield {
+        margin-top: 20px;
+        border-radius: calc(var(--radius) * 5);
+        border: 1px solid rgba(198, 196, 196, 0.978);
+        box-shadow: 0 0 3px var(--secondary-color);
+        height: 50px;
+        width: min(600px, 90%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing);
+      }
+
+      .prefix {
+        margin-left: calc(var(--spacing) * 0.8);
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .ai-button {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        background-color: #e8e5e5;
+        display: flex;
+        padding: 5px;
+        border-radius: calc(var(--radius) * 5);
+        justify-content: space-around;
+        gap: 2px;
+      }
+
+      .suffix {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      #google_products {
+        cursor: pointer;
+      }
+
+      main > section > button {
+        padding: 8px 16px;
+        border: 0px;
+        border-radius: 5px;
+        color: var(--button-text-color);
+        background-color: var(--button-color);
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .search-button-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 15px;
+        font-size: 16px;
+        margin-top: calc(var(--spacing) * 0.6);
+      }
+
+      .lang-info {
+        margin: calc(var(--spacing) * 2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+      }
+
+      .language-name {
+        color: rgb(26, 13, 171);
+      }
+
+      .language-name:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      footer {
+        height: 94px;
+        background-color: rgb(242, 242, 242);
+        width: 100%;
+        padding: 0px;
+        font-family: sans-serif;
+        color: var(--button-text-color);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .country {
+        border-bottom: 1px solid rgb(210, 210, 210);
+        width: inherit;
+      }
+
+      .country > span {
+        font-size: 15px;
+        margin-left: 30px;
+      }
+
+      .about {
+        font-size: 14px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        gap: 20px;
+      }
+
+      .settings {
+        display: flex;
+        gap: 20px;
+      }
+
+      .business {
+        display: flex;
+        gap: 20px;
+      }
+
+      @media (max-width: 500px) {
+        #textfield {
+          width: min(300px, 40%);
+        }
+
+        .searchfield {
+          width: 100%;
+        }
+
+        .about {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="nav-left">
+        <nav>
+          <a href="#">About</a>
+          <a href="#">Store</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <nav>
+          <a href="#">Gmail</a>
+          <a href="#">Images</a>
+          <img
+            src="https://ssl.gstatic.com/gb/images/bar/al-icon.png"
+            alt=""
+            height="24"
+            width="24"
+            style="border: none; display: none \9"
+            role="button"
+            id="google_products"
+          />
+          <img
+            class="gb_S"
+            src="https://lh3.googleusercontent.com/ogw/AF2bZyhTPaVm9v7qXaaw7qDQxcI2Qfmut0q4gdETvC82zhHDCA=s32-c-mo"
+            srcset="
+              https://lh3.googleusercontent.com/ogw/AF2bZyhTPaVm9v7qXaaw7qDQxcI2Qfmut0q4gdETvC82zhHDCA=s32-c-mo 1x,
+              https://lh3.googleusercontent.com/ogw/AF2bZyhTPaVm9v7qXaaw7qDQxcI2Qfmut0q4gdETvC82zhHDCA=s64-c-mo 2x
+            "
+            alt="account-image"
+          />
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="logo-with-search">
+        <img
+          src="https://t3.ftcdn.net/jpg/15/08/73/04/240_F_1508730486_vPNwMuCnnQtvgpUEveEjYSGhEncARFPC.jpg"
+          alt="google-logo"
+        />
+        <form action="#">
+          <div class="searchfield">
+            <span class="prefix">+</span>
+            <input type="text" id="textfield" />
+            <div class="suffix">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/7422/7422028.png"
+                alt=""
+                height="25"
+              />
+              <img
+                src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/technology/google-lens-vpaetmjfrusd3o9w34s58.png/google-lens-liznyqh2evl09fugnk212jl.png?_a=DATAiZAAZAA0"
+                alt=""
+                height="25"
+              />
+              <div class="ai-button">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/17030/17030810.png"
+                  alt=""
+                  height="20"
+                />
+                <span>AI Mode</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="search-button-group">
+        <button>Google Search</button>
+        <button>I'm Feeling Lucky</button>
+      </section>
+      <section class="lang-info">
+        <span>Google offered in: &nbsp</span>
+        <span class="language-name">हिन्दी &nbsp</span>
+        <span class="language-name">বাংলা &nbsp</span>
+        <span class="language-name">తెలుగు &nbsp</span>
+        <span class="language-name">मराठी &nbsp</span>
+        <span class="language-name">தமிழ் &nbsp</span>
+        <span class="language-name">ગુજરાતી &nbsp</span>
+        <span class="language-name">ಕನ್ನಡ &nbsp</span>
+        <span class="language-name">മലയാളം &nbsp</span>
+        <span class="language-name">ਪੰਜਾਬੀ &nbsp</span>
+      </section>
+    </main>
+    <footer>
+      <div class="country"><span>India</span></div>
+      <div class="about">
+        <div class="business">
+          <span>Advertising</span>
+          <span>Business</span>
+          <span>How Search works</span>
+        </div>
+        <div class="settings">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>Settings</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
